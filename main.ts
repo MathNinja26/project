@@ -100,6 +100,24 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         mySprite.x = x
         mySprite.y = y
         pause(100)
+        joeBob = sprites.create(img`
+            . . . . f f f f . . . . 
+            . . f f e e e e f f . . 
+            . f f e e e e e e f f . 
+            f f f f 4 e e e f f f f 
+            f f f 4 4 4 e e f f f f 
+            f f f 4 4 4 4 e e f f f 
+            f 4 e 4 4 4 4 4 4 e 4 f 
+            f 4 4 f f 4 4 f f 4 4 f 
+            f e 4 d d d d d d 4 e f 
+            . f e d d b b d d e f . 
+            . f f e 4 4 4 4 e f f . 
+            e 4 f b 1 1 1 1 b f 4 e 
+            4 d f 1 1 1 1 1 1 f d 4 
+            4 4 f 6 6 6 6 6 6 f 4 4 
+            . . . f f f f f f . . . 
+            . . . f f . . f f . . . 
+            `, SpriteKind.Enemy)
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -314,6 +332,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+let joeBob: Sprite = null
 let y = 0
 let x = 0
 let mySprite: Sprite = null
