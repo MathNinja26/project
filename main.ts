@@ -96,6 +96,8 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.Player)
     controller.moveSprite(mySprite)
+    mySprite.x = x
+    mySprite.y = y
     pause(100)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -148,6 +150,8 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . f f f f f f . . . . . 
         . . . . . . f f f . . . . . . . 
         `, SpriteKind.Player)
+    mySprite.x = x
+    mySprite.y = y
     controller.moveSprite(mySprite)
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
