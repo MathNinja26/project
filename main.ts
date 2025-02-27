@@ -21,7 +21,6 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . e f f f f f f e e 4 . . . 
             . . . . f f f . . . . . . . . . 
             `, SpriteKind.Player)
-        controller.moveSprite(mySprite)
         mySprite.x = x
         mySprite.y = y
         pause(100)
@@ -46,7 +45,6 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . . . f f f f f f . . . . . 
             . . . . . f f . . f f . . . . . 
             `, SpriteKind.Player)
-        controller.moveSprite(mySprite)
         mySprite.x = x
         mySprite.y = y
         pause(100)
@@ -71,7 +69,6 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . 4 e e f f f f f f e . . . 
             . . . . . . . . . f f f . . . . 
             `, SpriteKind.Player)
-        controller.moveSprite(mySprite)
         mySprite.x = x
         mySprite.y = y
         pause(100)
@@ -96,7 +93,6 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . . . f f f f f f . . . . . 
             . . . . . f f . . f f . . . . . 
             `, SpriteKind.Player)
-        controller.moveSprite(mySprite)
         mySprite.x = x
         mySprite.y = y
         pause(100)
@@ -179,7 +175,6 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
             `, SpriteKind.Player)
         mySprite.x = x
         mySprite.y = y
-        controller.moveSprite(mySprite)
         pause(100)
         x = mySprite.x
         y = mySprite.y
@@ -204,7 +199,6 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
             `, SpriteKind.Player)
         mySprite.x = x
         mySprite.y = y
-        controller.moveSprite(mySprite)
         pause(100)
     }
 })
@@ -231,7 +225,6 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . . f f f f f f f . . . . . 
             . . . . f f f . . . . . . . . . 
             `, SpriteKind.Player)
-        controller.moveSprite(mySprite)
         mySprite.x = x
         mySprite.y = y
         pause(100)
@@ -256,7 +249,6 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . . . f f f f f f . . . . . 
             . . . . . f f . . f f . . . . . 
             `, SpriteKind.Player)
-        controller.moveSprite(mySprite)
         mySprite.x = x
         mySprite.y = y
         pause(100)
@@ -281,7 +273,6 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . . . f f f f f f f . . . . 
             . . . . . . . . . f f f . . . . 
             `, SpriteKind.Player)
-        controller.moveSprite(mySprite)
         mySprite.x = x
         mySprite.y = y
         pause(100)
@@ -306,7 +297,6 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . . . f f f f f f . . . . . 
             . . . . . f f . . f f . . . . . 
             `, SpriteKind.Player)
-        controller.moveSprite(mySprite)
         mySprite.x = x
         mySprite.y = y
         pause(100)
