@@ -127,7 +127,6 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
             `, SpriteKind.Player)
         mySprite.x = x
         mySprite.y = y
-        controller.moveSprite(mySprite)
         pause(100)
         x = mySprite.x
         y = mySprite.y
@@ -152,7 +151,6 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
             `, SpriteKind.Player)
         mySprite.x = x
         mySprite.y = y
-        controller.moveSprite(mySprite)
         pause(100)
     }
 })
@@ -314,11 +312,14 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+sprites.onCreated(SpriteKind.Player, function (sprite) {
+    controller.moveSprite(mySprite)
+    scene.cameraFollowSprite(mySprite)
+})
 let y = 0
 let x = 0
 let mySprite: Sprite = null
 tiles.setCurrentTilemap(tilemap`level2`)
-controller.moveSprite(mySprite)
 mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . f f e e e e f 2 f . . . . 
