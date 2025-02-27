@@ -303,8 +303,8 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 sprites.onCreated(SpriteKind.Player, function (sprite) {
-    controller.moveSprite(mySprite)
-    scene.cameraFollowSprite(mySprite)
+    controller.moveSprite(sprite)
+    scene.cameraFollowSprite(sprite)
 })
 let y = 0
 let x = 0
