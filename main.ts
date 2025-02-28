@@ -1,3 +1,6 @@
+namespace SpriteKind {
+    export const Coin = SpriteKind.create()
+}
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.up.isPressed()) {
         x = mySprite.x
@@ -98,6 +101,9 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.left.isPressed()) {
         x = mySprite.x
@@ -152,6 +158,19 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function level2 () {
     tiles.setCurrentTilemap(tilemap`level6`)
+    for (let index = 0; index < 20; index++) {
+        coins = sprites.create(img`
+            . . . b b . . . 
+            . . b 5 5 b . . 
+            . b 5 d 1 5 b . 
+            . b 5 3 1 5 b . 
+            . c 5 3 1 d c . 
+            . c 5 1 d d c . 
+            . . f d d f . . 
+            . . . f f . . . 
+            `, SpriteKind.Coin)
+        tiles.placeOnRandomTile(coins, sprites.builtin.coral1)
+    }
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.right.isPressed()) {
@@ -306,9 +325,11 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 sprites.onCreated(SpriteKind.Player, function (sprite) {
+    info.setScore(0)
     controller.moveSprite(sprite)
     scene.cameraFollowSprite(sprite)
 })
+let coins: Sprite = null
 let y = 0
 let x = 0
 let mySprite: Sprite = null
