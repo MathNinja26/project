@@ -151,7 +151,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function level2 () {
-	
+    tiles.setCurrentTilemap(tilemap`level6`)
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.right.isPressed()) {
