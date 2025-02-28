@@ -104,8 +104,10 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(otherSprite, effects.fire, 1000)
-    if (0 == 0) {
-    	
+    music.play(music.melodyPlayable(music.knock), music.PlaybackMode.UntilDone)
+    if (info.score() == 20) {
+        game.splash("NEXT LEVEL!")
+        music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
