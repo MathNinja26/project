@@ -111,10 +111,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSpr
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
     }
 })
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Ghost, function (sprite, otherSprite) {
-    game.setGameOverEffect(false, effects.dissolve)
-    game.gameOver(false)
-})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.left.isPressed()) {
         x = mySprite.x
@@ -182,27 +178,30 @@ function level2 () {
             `, SpriteKind.Coin)
         tiles.placeOnRandomTile(coins, sprites.builtin.coral1)
     }
-    mySprite2 = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . 2 2 2 2 2 2 2 2 . . . . . 
-        . . 2 2 4 4 4 4 4 4 2 2 . . . . 
-        . . 2 4 4 5 5 5 5 4 4 2 . . . . 
-        . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
-        . . 2 4 4 5 5 5 5 4 4 2 . . . . 
-        . . 2 2 4 4 4 4 4 4 2 2 . . . . 
-        . . . 2 2 2 2 2 2 2 2 . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Projectile)
-    tiles.placeOnRandomTile(mySprite2, sprites.dungeon.collectibleInsignia)
-    mySprite.setVelocity(-100, 50)
-    pause(500)
+    while (info.score() != 20) {
+        mySprite2 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Projectile)
+        tiles.placeOnRandomTile(mySprite2, sprites.dungeon.collectibleInsignia)
+        mySprite2.setVelocity(-100, 0)
+        pause(500)
+        mySprite2.setBounceOnWall(false)
+    }
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.right.isPressed()) {
@@ -255,6 +254,10 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         mySprite.y = y
         pause(100)
     }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    game.setGameOverEffect(false, effects.dissolve)
+    game.gameOver(false)
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.down.isPressed()) {
@@ -355,6 +358,9 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         mySprite.y = y
         pause(100)
     }
+})
+scene.onHitWall(SpriteKind.Projectile, function (sprite, location) {
+    sprites.destroy(sprite)
 })
 sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite)
