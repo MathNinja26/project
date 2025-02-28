@@ -98,6 +98,9 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+function level1 () {
+	
+}
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.left.isPressed()) {
         x = mySprite.x
