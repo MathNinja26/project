@@ -99,7 +99,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function level1 () {
-	
+    tiles.setCurrentTilemap(tilemap`level4`)
 }
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.left.isPressed()) {
@@ -315,7 +315,7 @@ sprites.onCreated(SpriteKind.Player, function (sprite) {
 let y = 0
 let x = 0
 let mySprite: Sprite = null
-tiles.setCurrentTilemap(tilemap`level2`)
+level1()
 level2()
 mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
