@@ -1,3 +1,7 @@
+namespace SpriteKind {
+    export const Coin = SpriteKind.create()
+    export const Ghost = SpriteKind.create()
+}
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.up.isPressed()) {
         x = mySprite.x
@@ -98,6 +102,15 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    sprites.destroy(otherSprite, effects.fire, 1000)
+    music.play(music.melodyPlayable(music.knock), music.PlaybackMode.UntilDone)
+    if (info.score() == 20) {
+        game.splash("NEXT LEVEL!")
+        music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
+    }
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.left.isPressed()) {
         x = mySprite.x
@@ -151,7 +164,44 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function level2 () {
-	
+    tiles.setCurrentTilemap(tilemap`level6`)
+    for (let index = 0; index < 20; index++) {
+        coins = sprites.create(img`
+            . . . b b . . . 
+            . . b 5 5 b . . 
+            . b 5 d 1 5 b . 
+            . b 5 3 1 5 b . 
+            . c 5 3 1 d c . 
+            . c 5 1 d d c . 
+            . . f d d f . . 
+            . . . f f . . . 
+            `, SpriteKind.Coin)
+        tiles.placeOnRandomTile(coins, sprites.builtin.coral1)
+    }
+    while (info.score() != 20) {
+        mySprite2 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Projectile)
+        tiles.placeOnRandomTile(mySprite2, sprites.dungeon.collectibleInsignia)
+        mySprite2.setVelocity(-100, 0)
+        pause(500)
+        mySprite2.setBounceOnWall(false)
+    }
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.right.isPressed()) {
@@ -204,6 +254,10 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         mySprite.y = y
         pause(100)
     }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    game.setGameOverEffect(false, effects.dissolve)
+    game.gameOver(false)
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.down.isPressed()) {
@@ -305,15 +359,19 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+scene.onHitWall(SpriteKind.Projectile, function (sprite, location) {
+    sprites.destroy(sprite)
+})
 sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite)
     scene.cameraFollowSprite(sprite)
 })
+let mySprite2: Sprite = null
+let coins: Sprite = null
 let y = 0
 let x = 0
 let mySprite: Sprite = null
-tiles.setCurrentTilemap(tilemap`level2`)
-level2()
+info.setScore(0)
 mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . f f e e e e f 2 f . . . . 
@@ -332,3 +390,4 @@ mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . . f f f . . . . . . . 
     `, SpriteKind.Player)
+level2()
