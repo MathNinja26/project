@@ -103,6 +103,10 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
     info.changeScoreBy(1)
+    sprites.destroy(otherSprite, effects.fire, 1000)
+    if (0 == 0) {
+    	
+    }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.left.isPressed()) {
@@ -325,7 +329,6 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 sprites.onCreated(SpriteKind.Player, function (sprite) {
-    info.setScore(0)
     controller.moveSprite(sprite)
     scene.cameraFollowSprite(sprite)
 })
@@ -333,6 +336,7 @@ let coins: Sprite = null
 let y = 0
 let x = 0
 let mySprite: Sprite = null
+info.setScore(0)
 mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . f f e e e e f 2 f . . . . 
