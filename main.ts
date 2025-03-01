@@ -165,6 +165,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function level2 () {
     tiles.setCurrentTilemap(tilemap`level6`)
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 3))
     for (let index = 0; index < 20; index++) {
         coins = sprites.create(img`
             . . . b b . . . 
