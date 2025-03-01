@@ -264,8 +264,11 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    game.setGameOverEffect(false, effects.dissolve)
-    game.gameOver(false)
+    info.changeLifeBy(-1)
+    if (info.life() == 0) {
+        game.setGameOverEffect(false, effects.dissolve)
+        game.gameOver(false)
+    }
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.down.isPressed()) {
@@ -474,6 +477,7 @@ let y = 0
 let x = 0
 let mySprite: Sprite = null
 info.setScore(0)
+info.setLife(3)
 mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . f f e e e e f 2 f . . . . 
