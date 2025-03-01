@@ -165,6 +165,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function level2 () {
     tiles.setCurrentTilemap(tilemap`level6`)
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 3))
     for (let index = 0; index < 20; index++) {
         coins = sprites.create(img`
             . . . b b . . . 
@@ -259,6 +260,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
     game.setGameOverEffect(false, effects.dissolve)
     game.gameOver(false)
 })
+function Level$ () {
+	
+}
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.down.isPressed()) {
         x = mySprite.x
