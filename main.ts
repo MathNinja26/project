@@ -161,6 +161,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function level2 () {
     tiles.setCurrentTilemap(tilemap`level6`)
+    game.splash("Collect 20 coins, avoid the projectiles")
     tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 3))
     for (let index = 0; index < 20; index++) {
         coins = sprites.create(img`
@@ -175,6 +176,7 @@ function level2 () {
             `, SpriteKind.Coin)
         tiles.placeOnRandomTile(coins, sprites.builtin.coral1)
     }
+    info.startCountdown(60)
     while (info.score() != 20) {
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -200,6 +202,10 @@ function level2 () {
         mySprite2.setBounceOnWall(false)
     }
     if (info.score() == 20) {
+        info.stopCountdown()
+        if (info.countdown() > 0) {
+            info.changeLifeBy(1)
+        }
         game.splash("NEXT LEVEL!")
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
     }
@@ -384,6 +390,7 @@ function Level4 () {
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.Player)
     tiles.setCurrentTilemap(tilemap`level8`)
+    game.splash("Collect 20 coins, avoid the projectiles")
     tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 7))
     for (let index = 0; index < 20; index++) {
         coins = sprites.create(img`
@@ -398,6 +405,7 @@ function Level4 () {
             `, SpriteKind.Coin)
         tiles.placeOnRandomTile(coins, sprites.dungeon.darkGroundCenter)
     }
+    info.startCountdown(60)
     while (info.score() != 40) {
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -445,6 +453,10 @@ function Level4 () {
         mySprite3.setBounceOnWall(false)
     }
     if (info.score() == 40) {
+        info.stopCountdown()
+        if (info.countdown() > 0) {
+            info.changeLifeBy(1)
+        }
         game.splash("NEXT LEVEL!")
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
     }
