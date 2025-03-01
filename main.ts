@@ -363,6 +363,10 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
 scene.onHitWall(SpriteKind.Projectile, function (sprite, location) {
     sprites.destroy(sprite)
 })
+function Level4 () {
+    tiles.setCurrentTilemap(tilemap`level8`)
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 7))
+}
 sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite)
     scene.cameraFollowSprite(sprite)
@@ -392,3 +396,4 @@ mySprite = sprites.create(img`
     . . . . . . f f f . . . . . . . 
     `, SpriteKind.Player)
 level2()
+Level4()
