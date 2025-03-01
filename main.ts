@@ -165,8 +165,6 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function level2 () {
     tiles.setCurrentTilemap(tilemap`level6`)
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 3))
-    game.splash("Avoid projectiles and colect all 20 coins to complete the level")
     for (let index = 0; index < 20; index++) {
         coins = sprites.create(img`
             . . . b b . . . 
@@ -200,8 +198,8 @@ function level2 () {
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Projectile)
         tiles.placeOnRandomTile(mySprite2, sprites.dungeon.collectibleInsignia)
-        mySprite2.setVelocity(-150, 0)
-        pause(200)
+        mySprite2.setVelocity(-100, 0)
+        pause(500)
         mySprite2.setBounceOnWall(false)
     }
 }
