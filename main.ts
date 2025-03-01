@@ -175,7 +175,7 @@ function level2 () {
             `, SpriteKind.Coin)
         tiles.placeOnRandomTile(coins, sprites.builtin.coral1)
     }
-    info.startCountdown(25)
+    info.startCountdown(20)
     while (info.score() != 20) {
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
