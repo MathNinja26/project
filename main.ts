@@ -106,10 +106,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSpr
     info.changeScoreBy(1)
     sprites.destroy(otherSprite, effects.fire, 1000)
     music.play(music.melodyPlayable(music.knock), music.PlaybackMode.UntilDone)
-    if (info.score() == 20) {
-        game.splash("NEXT LEVEL!")
-        music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
-    }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.left.isPressed()) {
@@ -199,9 +195,13 @@ function level2 () {
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Projectile)
         tiles.placeOnRandomTile(mySprite2, sprites.dungeon.collectibleInsignia)
-        mySprite2.setVelocity(-100, 0)
+        mySprite2.setVelocity(-150, 0)
         pause(500)
         mySprite2.setBounceOnWall(false)
+    }
+    if (info.score() == 20) {
+        game.splash("NEXT LEVEL!")
+        music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
     }
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -398,11 +398,62 @@ function Level4 () {
             `, SpriteKind.Coin)
         tiles.placeOnRandomTile(coins, sprites.dungeon.darkGroundCenter)
     }
+    while (info.score() != 40) {
+        mySprite2 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Projectile)
+        tiles.placeOnRandomTile(mySprite2, sprites.dungeon.collectibleInsignia)
+        mySprite2.setVelocity(-150, 0)
+        pause(500)
+        mySprite2.setBounceOnWall(false)
+        mySprite3 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . 2 2 4 4 5 8 8 5 4 4 2 2 . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Projectile)
+        tiles.placeOnRandomTile(mySprite3, sprites.dungeon.hazardWater)
+        mySprite3.setVelocity(150, 0)
+        pause(500)
+        mySprite3.setBounceOnWall(false)
+    }
+    if (info.score() == 40) {
+        game.splash("NEXT LEVEL!")
+        music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
+    }
 }
 sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite)
     scene.cameraFollowSprite(sprite)
 })
+let mySprite3: Sprite = null
 let mySprite2: Sprite = null
 let coins: Sprite = null
 let y = 0
