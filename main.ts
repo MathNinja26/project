@@ -207,6 +207,7 @@ function level2 () {
         game.splash("NEXT LEVEL!")
         info.changeLifeBy(1)
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
+        sprites.destroy(mySprite)
     }
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -379,7 +380,6 @@ scene.onHitWall(SpriteKind.Projectile, function (sprite, location) {
     sprites.destroy(sprite)
 })
 function Level4 () {
-    sprites.destroy(mySprite)
     mySprite = sprites.create(img`
         . . . . . . f f f f . . . . . . 
         . . . . f f f 2 2 f f f . . . . 
