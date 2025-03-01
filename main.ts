@@ -264,9 +264,10 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    info.setLife(info.life() - 1)
-    if (info.life() <= 0) {
-        game.setGameOverEffect(false, effects.dissolve)
+    game.setGameOverEffect(false, effects.dissolve)
+    info.changeLifeBy(-1)
+    sprites.destroy(otherSprite)
+    while (info.life() == 0) {
         game.gameOver(false)
     }
 })
