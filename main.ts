@@ -460,7 +460,7 @@ function Level4 () {
     if (info.score() == 40) {
         info.stopCountdown()
         if (info.countdown() > 0) {
-            info.changeLifeBy(1)
+            info.setLife(info.life() + 1)
         }
         game.splash("NEXT LEVEL!")
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
