@@ -370,6 +370,12 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
+    game.splash("RULES")
+    game.splash("1. Collect all the coins in the level")
+    game.splash("2. Don't get hit by projectiles")
+    game.splash("3. Finish the level before the time runs out to get an extra heart")
+})
 scene.onHitWall(SpriteKind.Projectile, function (sprite, location) {
     sprites.destroy(sprite)
 })
@@ -476,6 +482,10 @@ let coins: Sprite = null
 let y = 0
 let x = 0
 let mySprite: Sprite = null
+game.splash("RULES")
+game.splash("1. Collect all the coins in the level")
+game.splash("2. Don't get hit by projectiles")
+game.splash("3. Finish the level before the time runs out to get an extra heart")
 info.setScore(0)
 info.setLife(3)
 mySprite = sprites.create(img`
