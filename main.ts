@@ -419,7 +419,7 @@ function Level4 () {
             `, SpriteKind.Projectile)
         tiles.placeOnRandomTile(mySprite2, sprites.dungeon.collectibleInsignia)
         mySprite2.setVelocity(-150, 0)
-        pause(500)
+        pause(100)
         mySprite2.setBounceOnWall(false)
         mySprite3 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -441,7 +441,7 @@ function Level4 () {
             `, SpriteKind.Projectile)
         tiles.placeOnRandomTile(mySprite3, sprites.dungeon.hazardWater)
         mySprite3.setVelocity(150, 0)
-        pause(500)
+        pause(100)
         mySprite3.setBounceOnWall(false)
     }
     if (info.score() == 40) {
