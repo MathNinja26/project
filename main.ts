@@ -482,6 +482,7 @@ game.splash("RULES")
 game.splash("1. Collect all the coins in the level")
 game.splash("2. Don't get hit by projectiles")
 game.splash("3. Finish the level before the time runs out to get an extra heart")
+game.splash("Press menu to reveiw rules")
 info.setScore(0)
 info.setLife(3)
 mySprite = sprites.create(img`
