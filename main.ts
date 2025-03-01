@@ -396,7 +396,7 @@ function Level4 () {
             . . f d d f . . 
             . . . f f . . . 
             `, SpriteKind.Coin)
-        tiles.placeOnRandomTile(coins, sprites.builtin.coral1)
+        tiles.placeOnRandomTile(coins, sprites.dungeon.darkGroundCenter)
     }
 }
 sprites.onCreated(SpriteKind.Player, function (sprite) {
