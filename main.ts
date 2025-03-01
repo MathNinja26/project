@@ -161,7 +161,8 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function level2 () {
     tiles.setCurrentTilemap(tilemap`level6`)
-    game.splash("Collect 20 coins, avoid the projectiles")
+    game.splash("Collect 20 coins, avoid the projectiles.")
+    game.splash("Finish before the timer runs out to get an extra life.")
     tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 3))
     for (let index = 0; index < 20; index++) {
         coins = sprites.create(img`
@@ -390,7 +391,8 @@ function Level4 () {
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.Player)
     tiles.setCurrentTilemap(tilemap`level8`)
-    game.splash("Collect 20 coins, avoid the projectiles")
+    game.splash("Collect 20 coins, avoid the projectiles.")
+    game.splash("Finish before the timer runs out to get another heart.")
     tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 7))
     for (let index = 0; index < 20; index++) {
         coins = sprites.create(img`
