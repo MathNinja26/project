@@ -177,7 +177,7 @@ function level2 () {
             `, SpriteKind.Coin)
         tiles.placeOnRandomTile(coins, sprites.builtin.coral1)
     }
-    info.startCountdown(60)
+    info.startCountdown(30)
     while (info.score() != 20) {
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -203,7 +203,6 @@ function level2 () {
         mySprite2.setBounceOnWall(false)
     }
     if (info.score() == 20) {
-        info.stopCountdown()
         if (info.countdown() > 0) {
             info.changeLifeBy(1)
         }
