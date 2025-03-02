@@ -201,9 +201,7 @@ function level2 () {
         mySprite2.setBounceOnWall(false)
     }
     if (info.score() == 20) {
-        if (info.countdown() > 0) {
-            info.changeLifeBy(1)
-        }
+        info.stopCountdown()
         game.splash("NEXT LEVEL!")
         info.changeLifeBy(1)
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
@@ -374,7 +372,7 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
     game.splash("RULES")
     game.splash("1. Collect all the coins in the level")
     game.splash("2. Don't get hit by projectiles")
-    game.splash("3. Finish the level before the time runs out to get an extra heart")
+    game.splash("3. Finish the level before the time runs out.")
 })
 scene.onHitWall(SpriteKind.Projectile, function (sprite, location) {
     sprites.destroy(sprite)
@@ -462,9 +460,6 @@ function Level4 () {
     }
     if (info.score() == 40) {
         info.stopCountdown()
-        if (info.countdown() > 0) {
-            info.setLife(info.life() + 1)
-        }
         game.splash("NEXT LEVEL!")
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
     }
@@ -482,7 +477,7 @@ let mySprite: Sprite = null
 game.splash("RULES")
 game.splash("1. Collect all the coins in the level")
 game.splash("2. Don't get hit by projectiles")
-game.splash("3. Finish the level before the time runs out to get an extra heart")
+game.splash("3. Finish the level before the time runs out.")
 game.splash("Press menu to reveiw rules")
 info.setScore(0)
 info.setLife(3)
