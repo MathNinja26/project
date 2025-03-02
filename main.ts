@@ -205,6 +205,7 @@ function level2 () {
         game.splash("NEXT LEVEL!")
         info.changeLifeBy(1)
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
+        mySprite.setFlag(SpriteFlag.Invisible, true)
         sprites.destroy(mySprite)
     }
 }
