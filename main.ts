@@ -200,16 +200,18 @@ function level2 () {
         pause(500)
         mySprite2.setBounceOnWall(false)
     }
+    mySprite.setFlag(SpriteFlag.Invisible, true)
+    sprites.destroy(mySprite)
     if (info.score() == 20) {
-        if (info.countdown() >= 5) {
+        if (info.countdown() >= 10) {
+            info.changeLifeBy(1)
+        } else if (info.countdown() >= 5) {
             info.changeLifeBy(1)
         }
         info.stopCountdown()
         game.splash("NEXT LEVEL!")
         info.changeLifeBy(1)
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
-        mySprite.setFlag(SpriteFlag.Invisible, true)
-        sprites.destroy(mySprite)
     }
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
