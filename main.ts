@@ -507,3 +507,5 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 level2()
 Level4()
+game.setGameOverEffect(true, effects.confetti)
+game.gameOver(true)
