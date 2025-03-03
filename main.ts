@@ -204,13 +204,12 @@ function level2 () {
     sprites.destroy(mySprite)
     if (info.score() == 20) {
         if (info.countdown() >= 10) {
-            info.changeLifeBy(1)
+            info.changeLifeBy(2)
         } else if (info.countdown() >= 5) {
             info.changeLifeBy(1)
         }
         info.stopCountdown()
         game.splash("NEXT LEVEL!")
-        info.changeLifeBy(1)
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
     }
 }
