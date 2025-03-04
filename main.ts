@@ -202,7 +202,7 @@ function level2 () {
     }
     mySprite.setFlag(SpriteFlag.Invisible, true)
     sprites.destroy(mySprite)
-    if (info.score() == 20) {
+    if (info.score() == 35) {
         if (info.countdown() >= 10) {
             info.changeLifeBy(2)
         } else if (info.countdown() >= 5) {
@@ -403,7 +403,7 @@ function Level4 () {
         `, SpriteKind.Player)
     tiles.setCurrentTilemap(tilemap`level8`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 7))
-    for (let index = 0; index < 20; index++) {
+    for (let index = 0; index < 25; index++) {
         coins = sprites.create(img`
             . . . b b . . . 
             . . b 5 5 b . . 
@@ -463,7 +463,7 @@ function Level4 () {
         pause(200)
         mySprite3.setBounceOnWall(false)
     }
-    if (info.score() == 40) {
+    if (info.score() == 60) {
         info.stopCountdown()
         game.splash("NEXT LEVEL!")
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
