@@ -208,7 +208,7 @@ function Level1 () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Projectile)
-        tiles.placeOnTile(mySprite2, tiles.getTileLocation(15, 1))
+        tiles.placeOnTile(mySprite2, tiles.getTileLocation(10, 12))
         mySprite2.setVelocity(-150, 0)
         pause(200)
         mySprite2.setBounceOnWall(false)
@@ -254,7 +254,7 @@ function Level1 () {
                 . . . . . . . . . . . . . . . . 
                 `, SpriteKind.Projectile)
             tiles.placeOnTile(mysprite4, tiles.getTileLocation(10, 12))
-            mysprite4.setVelocity(0, 150)
+            mysprite4.setVelocity(150, 0)
             pause(1000)
             mysprite4.setBounceOnWall(false)
             mysprite5 = sprites.create(img`
@@ -275,8 +275,8 @@ function Level1 () {
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `, SpriteKind.Projectile)
-            tiles.placeOnTile(mysprite5, tiles.getTileLocation(10, 12))
-            mysprite5.setVelocity(0, -150)
+            tiles.placeOnTile(mysprite5, tiles.getTileLocation(15, 1))
+            mysprite5.setVelocity(-150, 0)
             pause(100)
             mysprite5.setBounceOnWall(false)
             mysprite6 = sprites.create(img`
