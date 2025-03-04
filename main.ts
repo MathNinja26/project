@@ -160,6 +160,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function Level1 () {
+    tiles.setCurrentTilemap(tilemap`level12`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
     for (let index = 0; index < 20; index++) {
         coins = sprites.create(img`
@@ -172,7 +173,7 @@ function Level1 () {
             . . f d d f . . 
             . . . f f . . . 
             `, SpriteKind.Coin)
-        tiles.placeOnRandomTile(coins, sprites.builtin.coral1)
+        tiles.placeOnRandomTile(coins, sprites.dungeon.darkGroundCenter)
     }
     info.startCountdown(60)
     while (info.score() != 20) {
