@@ -154,6 +154,7 @@ function level1 () {
         pause(2000)
         tiles.placeOnTile(mySprite2, tiles.getTileLocation(9, 9))
         mySprite2.setVelocity(-150, 0)
+        pause(5000)
     }
     mySprite.setFlag(SpriteFlag.Invisible, true)
     sprites.destroy(mySprite)
