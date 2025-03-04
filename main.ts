@@ -159,9 +159,8 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
-function level2 () {
-    tiles.setCurrentTilemap(tilemap`level6`)
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 3))
+function Level1 () {
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
     for (let index = 0; index < 20; index++) {
         coins = sprites.create(img`
             . . . b b . . . 
@@ -175,7 +174,7 @@ function level2 () {
             `, SpriteKind.Coin)
         tiles.placeOnRandomTile(coins, sprites.builtin.coral1)
     }
-    info.startCountdown(25)
+    info.startCountdown(60)
     while (info.score() != 20) {
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -202,7 +201,61 @@ function level2 () {
     }
     mySprite.setFlag(SpriteFlag.Invisible, true)
     sprites.destroy(mySprite)
-    if (info.score() == 35) {
+    if (info.score() == 20) {
+        if (info.countdown() >= 10) {
+            info.changeLifeBy(2)
+        } else if (info.countdown() >= 5) {
+            info.changeLifeBy(1)
+        }
+        info.stopCountdown()
+        game.splash("NEXT LEVEL!")
+        music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
+    }
+}
+function level2 () {
+    tiles.setCurrentTilemap(tilemap`level6`)
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 3))
+    for (let index = 0; index < 20; index++) {
+        coins = sprites.create(img`
+            . . . b b . . . 
+            . . b 5 5 b . . 
+            . b 5 d 1 5 b . 
+            . b 5 3 1 5 b . 
+            . c 5 3 1 d c . 
+            . c 5 1 d d c . 
+            . . f d d f . . 
+            . . . f f . . . 
+            `, SpriteKind.Coin)
+        tiles.placeOnRandomTile(coins, sprites.builtin.coral1)
+    }
+    info.startCountdown(25)
+    while (info.score() != 40) {
+        mySprite2 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Projectile)
+        tiles.placeOnRandomTile(mySprite2, sprites.dungeon.collectibleInsignia)
+        mySprite2.setVelocity(-150, 0)
+        pause(500)
+        mySprite2.setBounceOnWall(false)
+    }
+    mySprite.setFlag(SpriteFlag.Invisible, true)
+    sprites.destroy(mySprite)
+    if (info.score() == 40) {
         if (info.countdown() >= 10) {
             info.changeLifeBy(2)
         } else if (info.countdown() >= 5) {
@@ -504,6 +557,7 @@ mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . . f f f . . . . . . . 
     `, SpriteKind.Player)
+Level1()
 level2()
 Level4()
 game.setGameOverEffect(true, effects.confetti)

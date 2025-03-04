@@ -2,7 +2,8 @@
     "name": "project - Copy",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "light": "*"
     },
     "files": [
         "main.blocks",
