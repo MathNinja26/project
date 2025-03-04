@@ -176,6 +176,10 @@ function Level1 () {
         tiles.placeOnRandomTile(coins, sprites.dungeon.darkGroundCenter)
     }
     info.startCountdown(60)
+    list = [0, 1]
+    listx = [0, 1]
+    side = [0, 1]
+    sidex = [0, 1]
     while (info.score() != 20) {
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -195,9 +199,31 @@ function Level1 () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Projectile)
-        tiles.placeOnRandomTile(mySprite2, sprites.dungeon.collectibleInsignia)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(list._pickRandom(), listx._pickRandom()))
         mySprite2.setVelocity(-150, 0)
-        pause(500)
+        pause(200)
+        mySprite2.setBounceOnWall(false)
+        mySprite3 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Projectile)
+        tiles.placeOnTile(mySprite3, tiles.getTileLocation(side._pickRandom(), sidex._pickRandom()))
+        mySprite2.setVelocity(0, 150)
+        pause(200)
         mySprite2.setBounceOnWall(false)
     }
     mySprite.setFlag(SpriteFlag.Invisible, true)
@@ -490,7 +516,7 @@ function Level4 () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Projectile)
-        tiles.placeOnRandomTile(mySprite2, sprites.dungeon.collectibleInsignia)
+        tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleInsignia)
         mySprite2.setVelocity(-150, 0)
         pause(200)
         mySprite2.setBounceOnWall(false)
@@ -512,7 +538,7 @@ function Level4 () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Projectile)
-        tiles.placeOnRandomTile(mySprite3, sprites.dungeon.hazardWater)
+        tiles.placeOnRandomTile(mySprite, sprites.dungeon.hazardWater)
         mySprite3.setVelocity(150, 0)
         pause(200)
         mySprite3.setBounceOnWall(false)
@@ -529,6 +555,10 @@ sprites.onCreated(SpriteKind.Player, function (sprite) {
 })
 let mySprite3: Sprite = null
 let mySprite2: Sprite = null
+let sidex: number[] = []
+let side: number[] = []
+let listx: number[] = []
+let list: number[] = []
 let coins: Sprite = null
 let y = 0
 let x = 0
