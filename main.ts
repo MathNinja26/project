@@ -2,6 +2,9 @@ namespace SpriteKind {
     export const Coin = SpriteKind.create()
     export const Ghost = SpriteKind.create()
 }
+function name (who: string) {
+    game.splash("You won " + who + "!")
+}
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.up.isPressed()) {
         x = mySprite.x
@@ -669,5 +672,6 @@ mySprite = sprites.create(img`
 Level1()
 level2()
 Level4()
+name(game.askForString("What is your name?"))
 game.setGameOverEffect(true, effects.confetti)
 game.gameOver(true)
