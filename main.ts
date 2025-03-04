@@ -162,7 +162,20 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 function Level1 () {
     tiles.setCurrentTilemap(tilemap`level12`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
-    for (let index = 0; index < 20; index++) {
+    list = [14, 4, 8]
+    listx = [3, 1, 6]
+    coins = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    tiles.placeOnTile(coins, tiles.getTileLocation(list._pickRandom(), listx._pickRandom()))
+    for (let index = 0; index < 18; index++) {
         coins = sprites.create(img`
             . . . b b . . . 
             . . b 5 5 b . . 
@@ -176,11 +189,9 @@ function Level1 () {
         tiles.placeOnRandomTile(coins, sprites.dungeon.darkGroundCenter)
     }
     info.startCountdown(60)
-    list = [0, 1]
-    listx = [0, 1]
-    side = [0, 1]
-    sidex = [0, 1]
     while (info.score() != 20) {
+        let sidex: number[] = []
+        let side: number[] = []
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -199,9 +210,9 @@ function Level1 () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Projectile)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(list._pickRandom(), listx._pickRandom()))
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 0))
         mySprite2.setVelocity(-150, 0)
-        pause(200)
+        pause(5000)
         mySprite2.setBounceOnWall(false)
         mySprite3 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -555,11 +566,9 @@ sprites.onCreated(SpriteKind.Player, function (sprite) {
 })
 let mySprite3: Sprite = null
 let mySprite2: Sprite = null
-let sidex: number[] = []
-let side: number[] = []
+let coins: Sprite = null
 let listx: number[] = []
 let list: number[] = []
-let coins: Sprite = null
 let y = 0
 let x = 0
 let mySprite: Sprite = null
