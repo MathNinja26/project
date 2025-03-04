@@ -215,96 +215,94 @@ function Level1 () {
         mySprite2.setVelocity(0, -150)
         pause(200)
         mySprite2.setBounceOnWall(false)
-        for (let index = 0; index < 4; index++) {
-            mySprite3 = sprites.create(img`
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . 2 2 2 2 2 2 2 2 . . . . . 
-                . . 2 2 4 4 4 4 4 4 2 2 . . . . 
-                . . 2 4 4 5 5 5 5 4 4 2 . . . . 
-                . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
-                . . 2 4 4 5 5 5 5 4 4 2 . . . . 
-                . . 2 2 4 4 4 4 4 4 2 2 . . . . 
-                . . . 2 2 2 2 2 2 2 2 . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                `, SpriteKind.Projectile)
-            tiles.placeOnTile(mySprite3, tiles.getTileLocation(4, 10))
-            mySprite3.setVelocity(0, -150)
-            pause(100)
-            mySprite3.setBounceOnWall(false)
-            mysprite4 = sprites.create(img`
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . 2 2 2 2 2 2 2 2 . . . . . 
-                . . 2 2 4 4 4 4 4 4 2 2 . . . . 
-                . . 2 4 4 5 5 5 5 4 4 2 . . . . 
-                . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
-                . . 2 4 4 5 5 5 5 4 4 2 . . . . 
-                . . 2 2 4 4 4 4 4 4 2 2 . . . . 
-                . . . 2 2 2 2 2 2 2 2 . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                `, SpriteKind.Projectile)
-            tiles.placeOnTile(mysprite4, tiles.getTileLocation(10, 12))
-            mysprite4.setVelocity(0, 150)
-            pause(2000)
-            mysprite4.setBounceOnWall(false)
-            mysprite5 = sprites.create(img`
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . 2 2 2 2 2 2 2 2 . . . . . 
-                . . 2 2 4 4 4 4 4 4 2 2 . . . . 
-                . . 2 4 4 5 5 5 5 4 4 2 . . . . 
-                . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
-                . . 2 4 4 5 5 5 5 4 4 2 . . . . 
-                . . 2 2 4 4 4 4 4 4 2 2 . . . . 
-                . . . 2 2 2 2 2 2 2 2 . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                `, SpriteKind.Projectile)
-            tiles.placeOnTile(mysprite5, tiles.getTileLocation(15, 1))
-            mysprite5.setVelocity(-150, 0)
-            pause(100)
-            mysprite5.setBounceOnWall(false)
-            mysprite6 = sprites.create(img`
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . 2 2 2 2 2 2 2 2 . . . . . 
-                . . 2 2 4 4 4 4 4 4 2 2 . . . . 
-                . . 2 4 4 5 5 5 5 4 4 2 . . . . 
-                . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
-                . . 2 4 4 5 5 5 5 4 4 2 . . . . 
-                . . 2 2 4 4 4 4 4 4 2 2 . . . . 
-                . . . 2 2 2 2 2 2 2 2 . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                . . . . . . . . . . . . . . . . 
-                `, SpriteKind.Projectile)
-            tiles.placeOnTile(mysprite6, tiles.getTileLocation(9, 8))
-            mysprite6.setVelocity(-150, 0)
-            pause(100)
-            mysprite6.setBounceOnWall(false)
-        }
+        mySprite3 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Projectile)
+        tiles.placeOnTile(mySprite3, tiles.getTileLocation(4, 10))
+        mySprite3.setVelocity(0, -150)
+        pause(100)
+        mySprite3.setBounceOnWall(false)
+        mysprite4 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Projectile)
+        tiles.placeOnTile(mysprite4, tiles.getTileLocation(10, 12))
+        mysprite4.setVelocity(0, 150)
+        pause(3000)
+        mysprite4.setBounceOnWall(false)
+        mysprite5 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Projectile)
+        tiles.placeOnTile(mysprite5, tiles.getTileLocation(15, 1))
+        mysprite5.setVelocity(-150, 0)
+        pause(100)
+        mysprite5.setBounceOnWall(false)
+        mysprite6 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Projectile)
+        tiles.placeOnTile(mysprite6, tiles.getTileLocation(9, 8))
+        mysprite6.setVelocity(-150, 0)
+        pause(100)
+        mysprite6.setBounceOnWall(false)
     }
     mySprite.setFlag(SpriteFlag.Invisible, true)
     sprites.destroy(mySprite)
@@ -321,6 +319,25 @@ function Level1 () {
 }
 function level2 () {
     tiles.setCurrentTilemap(tilemap`level6`)
+    scene.cameraFollowSprite(mySprite)
+    mySprite = sprites.create(img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f 2 2 f f f . . . . 
+        . . . f f f 2 2 2 2 f f f . . . 
+        . . f f f e e e e e e f f f . . 
+        . . f f e 2 2 2 2 2 2 e e f . . 
+        . . f e 2 f f f f f f 2 e f . . 
+        . . f f f f e e e e f f f f . . 
+        . f f e f b f 4 4 f b f e f f . 
+        . f e e 4 1 f d d f 1 4 e e f . 
+        . . f e e d d d d d d e e f . . 
+        . . . f e e 4 4 4 4 e e f . . . 
+        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `, SpriteKind.Player)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 3))
     for (let index = 0; index < 20; index++) {
         coins = sprites.create(img`
@@ -644,6 +661,7 @@ let list: number[] = []
 let y = 0
 let x = 0
 let mySprite: Sprite = null
+let person = game.askForString("What is your name?")
 game.splash("RULES")
 game.splash("1. Collect all the coins in the level")
 game.splash("2. Don't get hit by projectiles")
@@ -672,6 +690,6 @@ mySprite = sprites.create(img`
 Level1()
 level2()
 Level4()
-name(game.askForString("What is your name?"))
+name(person)
 game.setGameOverEffect(true, effects.confetti)
 game.gameOver(true)
