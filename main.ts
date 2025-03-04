@@ -151,7 +151,12 @@ function level1 () {
         pause(5000)
         tiles.placeOnTile(mySprite2, tiles.getTileLocation(9, 3))
         mySprite2.setVelocity(-150, 0)
+        pause(2000)
+        tiles.placeOnTile(mySprite2, tiles.getTileLocation(9, 9))
+        mySprite2.setVelocity(-150, 0)
     }
+    mySprite.setFlag(SpriteFlag.Invisible, true)
+    sprites.destroy(mySprite)
     if (info.score() == 20) {
         if (info.countdown() > 0) {
             info.changeLifeBy(1)
