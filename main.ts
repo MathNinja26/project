@@ -1,3 +1,6 @@
+namespace SpriteKind {
+    export const Coin = SpriteKind.create()
+}
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.up.isPressed()) {
         x = mySprite.x
@@ -98,6 +101,16 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    sprites.destroy(otherSprite, effects.fire, 1000)
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+	
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath2, function (sprite, location) {
+	
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.left.isPressed()) {
         x = mySprite.x
@@ -150,6 +163,134 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+function level3 () {
+    info.startCountdown(50)
+    Coin1 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    coin2 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    coin3 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    coin4 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    coin5 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    coin6 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    coin7 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    coin8 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    coin9 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    tiles.setCurrentTilemap(tilemap`level4`)
+    tiles.placeOnRandomTile(mySprite, sprites.castle.tilePath4)
+    tiles.placeOnTile(Coin1, tiles.getTileLocation(5, 1))
+    tiles.placeOnTile(coin2, tiles.getTileLocation(1, 6))
+    tiles.placeOnTile(coin3, tiles.getTileLocation(1, 11))
+    tiles.placeOnTile(coin4, tiles.getTileLocation(8, 0))
+    tiles.placeOnTile(coin5, tiles.getTileLocation(5, 14))
+    tiles.placeOnTile(coin6, tiles.getTileLocation(11, 5))
+    tiles.placeOnTile(coin7, tiles.getTileLocation(11, 13))
+    tiles.placeOnTile(coin8, tiles.getTileLocation(5, 9))
+    tiles.placeOnTile(coin9, tiles.getTileLocation(8, 6))
+    while (info.score() != 9) {
+        projectile = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
+            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+            . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
+            . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
+            . . 3 3 3 3 3 3 3 3 3 3 3 3 . . 
+            . . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Projectile)
+        tiles.placeOnRandomTile(projectile, sprites.castle.tileDarkGrass3)
+        projectile.setVelocity(-150, 0)
+        pause(500)
+        projectile.setBounceOnWall(false)
+    }
+}
 function level2 () {
 	
 }
@@ -204,6 +345,10 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         mySprite.y = y
         pause(100)
     }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    sprites.destroy(sprite, effects.trail, 1000)
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.down.isPressed()) {
@@ -305,10 +450,23 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+scene.onHitWall(SpriteKind.Projectile, function (sprite, location) {
+    sprites.destroy(projectile)
+})
 sprites.onCreated(SpriteKind.Player, function (sprite) {
     controller.moveSprite(sprite)
     scene.cameraFollowSprite(sprite)
 })
+let projectile: Sprite = null
+let coin9: Sprite = null
+let coin8: Sprite = null
+let coin7: Sprite = null
+let coin6: Sprite = null
+let coin5: Sprite = null
+let coin4: Sprite = null
+let coin3: Sprite = null
+let coin2: Sprite = null
+let Coin1: Sprite = null
 let y = 0
 let x = 0
 let mySprite: Sprite = null
@@ -332,3 +490,4 @@ mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . . f f f . . . . . . . 
     `, SpriteKind.Player)
+level3()
