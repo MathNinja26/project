@@ -105,7 +105,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(otherSprite, effects.fire, 1000)
-    music.play(music.melodyPlayable(music.knock), music.PlaybackMode.UntilDone)
+    music.play(music.stringPlayable("G - - B - - - - ", 900), music.PlaybackMode.UntilDone)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.left.isPressed()) {
