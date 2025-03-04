@@ -149,6 +149,8 @@ function level1 () {
         mySprite2.setVelocity(-150, 0)
         mySprite2.setBounceOnWall(false)
         pause(5000)
+        tiles.placeOnTile(mySprite2, tiles.getTileLocation(9, 3))
+        mySprite2.setVelocity(-150, 0)
     }
     if (info.score() == 20) {
         if (info.countdown() > 0) {
@@ -269,7 +271,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
     game.setGameOverEffect(false, effects.dissolve)
     sprites.destroy(otherSprite)
     while (info.life() == 0) {
-        game.gameOver(false)
+        game.gameOver(true)
     }
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
