@@ -107,7 +107,6 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(otherSprite, effects.fire, 1000)
-    music.play(music.melodyPlayable(music.knock), music.PlaybackMode.UntilDone)
 })
 function level1 () {
     tiles.setCurrentTilemap(tilemap`level4`)
