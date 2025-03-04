@@ -269,7 +269,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
     game.setGameOverEffect(false, effects.dissolve)
     sprites.destroy(otherSprite)
     while (info.life() == 0) {
-        game.gameOver(true)
+        game.gameOver(false)
     }
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -381,6 +381,8 @@ let coins: Sprite = null
 let y = 0
 let x = 0
 let mySprite: Sprite = null
+info.setScore(0)
+info.setLife(3)
 mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . f f e e e e f 2 f . . . . 
