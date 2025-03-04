@@ -107,6 +107,7 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(otherSprite, effects.fire, 1000)
+    music.play(music.stringPlayable("G - - B - - - - ", 900), music.PlaybackMode.UntilDone)
 })
 function level1 () {
     tiles.setCurrentTilemap(tilemap`level4`)
@@ -211,9 +212,6 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
-function level2 () {
-	
-}
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.right.isPressed()) {
         x = mySprite.x
@@ -270,7 +268,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
     game.setGameOverEffect(false, effects.dissolve)
     sprites.destroy(otherSprite)
     while (info.life() == 0) {
-        game.gameOver(true)
+        game.gameOver(false)
     }
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -403,4 +401,3 @@ mySprite = sprites.create(img`
     . . . . . . f f f . . . . . . . 
     `, SpriteKind.Player)
 level1()
-level2()
