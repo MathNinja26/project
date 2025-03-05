@@ -204,6 +204,7 @@ function Level3 () {
         . . . f f . . . 
         `, SpriteKind.Coin)
     tiles.placeOnRandomTile(mySprite, sprites.castle.tilePath4)
+    scene.cameraFollowSprite(mySprite)
     tiles.placeOnTile(Coin1, tiles.getTileLocation(5, 1))
     tiles.placeOnTile(Coin2, tiles.getTileLocation(1, 6))
     tiles.placeOnTile(Coin3, tiles.getTileLocation(1, 11))
