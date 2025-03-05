@@ -240,8 +240,6 @@ function Level3 () {
     }
     if (info.score() == 49) {
         if (info.countdown() >= 10) {
-            info.changeLifeBy(2)
-        } else if (info.countdown() >= 5) {
             info.changeLifeBy(1)
         }
         mySprite.setFlag(SpriteFlag.Invisible, true)
@@ -458,7 +456,7 @@ function Level1 () {
     mySprite.setFlag(SpriteFlag.Invisible, true)
     sprites.destroy(mySprite)
     if (info.score() == 20) {
-        if (info.countdown() >= 20) {
+        if (info.countdown() >= 35) {
             info.changeLifeBy(2)
         } else if (info.countdown() >= 10) {
             info.changeLifeBy(1)
@@ -792,6 +790,15 @@ function Level4 () {
         mySprite3.setBounceOnWall(false)
     }
     if (info.score() == 74) {
+        if (info.countdown() >= 30) {
+            info.changeScoreBy(5)
+        } else if (info.countdown() >= 20) {
+            info.changeScoreBy(4)
+        } else if (info.countdown() >= 10) {
+            info.changeScoreBy(2)
+        } else if (info.countdown() >= 5) {
+            info.changeScoreBy(1)
+        }
         info.stopCountdown()
         game.splash("GAME!")
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
