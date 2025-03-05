@@ -4,6 +4,7 @@ namespace SpriteKind {
 }
 function name (who: string) {
     game.splash("You won " + who + "!")
+    return who
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.up.isPressed()) {
