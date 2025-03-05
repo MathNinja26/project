@@ -597,7 +597,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
     info.changeLifeBy(-1)
     sprites.destroy(otherSprite)
     while (info.life() == 0) {
-        game.setGameOverMessage(false, "Game over." + " You're score was " + info.score())
+        game.splash("Game over...")
+        game.setGameOverMessage(false, "You're score was " + info.score())
         game.gameOver(false)
     }
 })
