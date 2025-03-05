@@ -111,6 +111,143 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSpr
     sprites.destroy(otherSprite, effects.fire, 1000)
     music.play(music.stringPlayable("G - - B - - - - ", 900), music.PlaybackMode.UntilDone)
 })
+function Level3 () {
+    tiles.setCurrentTilemap(tilemap`level17`)
+    Coin1 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    Coin2 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    Coin3 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    Coin4 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    Coin5 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    Coin6 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    Coin7 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    Coin8 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    Coin9 = sprites.create(img`
+        . . . b b . . . 
+        . . b 5 5 b . . 
+        . b 5 d 1 5 b . 
+        . b 5 3 1 5 b . 
+        . c 5 3 1 d c . 
+        . c 5 1 d d c . 
+        . . f d d f . . 
+        . . . f f . . . 
+        `, SpriteKind.Coin)
+    tiles.placeOnRandomTile(mySprite, sprites.castle.tilePath4)
+    tiles.placeOnTile(Coin1, tiles.getTileLocation(5, 1))
+    tiles.placeOnTile(Coin2, tiles.getTileLocation(1, 6))
+    tiles.placeOnTile(Coin3, tiles.getTileLocation(1, 11))
+    tiles.placeOnTile(Coin4, tiles.getTileLocation(8, 0))
+    tiles.placeOnTile(Coin5, tiles.getTileLocation(5, 14))
+    tiles.placeOnTile(Coin6, tiles.getTileLocation(11, 5))
+    tiles.placeOnTile(Coin7, tiles.getTileLocation(11, 13))
+    tiles.placeOnTile(Coin8, tiles.getTileLocation(5, 9))
+    tiles.placeOnTile(Coin9, tiles.getTileLocation(8, 6))
+    info.startCountdown(50)
+    while (info.score() != 49) {
+        mySprite2 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Projectile)
+        tiles.placeOnRandomTile(mySprite2, sprites.castle.tileDarkGrass3)
+        mySprite2.setVelocity(-150, 0)
+        pause(500)
+        mySprite2.setBounceOnWall(false)
+    }
+    if (info.score() == 49) {
+        if (info.countdown() >= 10) {
+            info.changeLifeBy(2)
+        } else if (info.countdown() >= 5) {
+            info.changeLifeBy(1)
+        }
+        mySprite.setFlag(SpriteFlag.Invisible, true)
+        sprites.destroy(mySprite)
+    }
+}
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.left.isPressed()) {
         x = mySprite.x
@@ -608,7 +745,7 @@ function Level4 () {
         tiles.placeOnRandomTile(coins, sprites.dungeon.darkGroundCenter)
     }
     info.startCountdown(60)
-    while (info.score() != 65) {
+    while (info.score() != 74) {
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -654,7 +791,7 @@ function Level4 () {
         pause(200)
         mySprite3.setBounceOnWall(false)
     }
-    if (info.score() == 65) {
+    if (info.score() == 74) {
         info.stopCountdown()
         game.splash("GAME!")
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
@@ -668,10 +805,19 @@ let mysprite6: Sprite = null
 let mysprite5: Sprite = null
 let mysprite4: Sprite = null
 let mySprite3: Sprite = null
-let mySprite2: Sprite = null
 let coins: Sprite = null
 let listx: number[] = []
 let list: number[] = []
+let mySprite2: Sprite = null
+let Coin9: Sprite = null
+let Coin8: Sprite = null
+let Coin7: Sprite = null
+let Coin6: Sprite = null
+let Coin5: Sprite = null
+let Coin4: Sprite = null
+let Coin3: Sprite = null
+let Coin2: Sprite = null
+let Coin1: Sprite = null
 let y = 0
 let x = 0
 let mySprite: Sprite = null
@@ -703,6 +849,7 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 Level1()
 level2()
+Level3()
 Level4()
 name(person)
 game.setGameOverEffect(true, effects.confetti)
