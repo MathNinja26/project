@@ -191,7 +191,7 @@ function Level1 () {
             `, SpriteKind.Coin)
         tiles.placeOnRandomTile(coins, sprites.dungeon.darkGroundCenter)
     }
-    info.startCountdown(60)
+    info.startCountdown(50)
     while (info.score() != 20) {
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
