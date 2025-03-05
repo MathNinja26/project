@@ -378,7 +378,6 @@ function level2 () {
         mySprite2.setBounceOnWall(false)
     }
     mySprite.setFlag(SpriteFlag.Invisible, true)
-    sprites.destroy(mySprite)
     if (info.score() == 40) {
         if (info.countdown() >= 10) {
             info.changeLifeBy(2)
@@ -388,6 +387,7 @@ function level2 () {
         info.stopCountdown()
         game.splash("NEXT LEVEL!")
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
+        sprites.destroy(mySprite)
     }
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -613,7 +613,7 @@ function Level4 () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Projectile)
-        tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleInsignia)
+        tiles.placeOnRandomTile(mySprite2, sprites.dungeon.collectibleInsignia)
         mySprite2.setVelocity(-150, 0)
         pause(200)
         mySprite2.setBounceOnWall(false)
@@ -635,7 +635,7 @@ function Level4 () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Projectile)
-        tiles.placeOnRandomTile(mySprite, sprites.dungeon.hazardWater)
+        tiles.placeOnRandomTile(mySprite3, sprites.dungeon.hazardWater)
         mySprite3.setVelocity(150, 0)
         pause(200)
         mySprite3.setBounceOnWall(false)
