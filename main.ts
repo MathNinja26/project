@@ -257,7 +257,7 @@ function Level1 () {
             `, SpriteKind.Projectile)
         tiles.placeOnTile(mysprite4, tiles.getTileLocation(10, 12))
         mysprite4.setVelocity(0, 150)
-        pause(3000)
+        pause(2500)
         mysprite4.setBounceOnWall(false)
         mysprite5 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -307,9 +307,9 @@ function Level1 () {
     mySprite.setFlag(SpriteFlag.Invisible, true)
     sprites.destroy(mySprite)
     if (info.score() == 20) {
-        if (info.countdown() >= 10) {
+        if (info.countdown() >= 20) {
             info.changeLifeBy(2)
-        } else if (info.countdown() >= 5) {
+        } else if (info.countdown() >= 10) {
             info.changeLifeBy(1)
         }
         info.stopCountdown()
