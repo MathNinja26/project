@@ -610,7 +610,7 @@ function Level4 () {
         tiles.placeOnRandomTile(coins, sprites.dungeon.darkGroundCenter)
     }
     info.startCountdown(60)
-    while (info.score() != 74) {
+    while (info.score() != 65) {
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -656,7 +656,7 @@ function Level4 () {
         pause(200)
         mySprite3.setBounceOnWall(false)
     }
-    if (info.score() == 74) {
+    if (info.score() == 65) {
         info.stopCountdown()
         game.splash("GAME!")
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
