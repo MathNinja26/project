@@ -165,7 +165,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function Level1 () {
     tiles.setCurrentTilemap(tilemap`level12`)
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 1))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
     list = [14, 4, 8]
     listx = [3, 1, 6]
     coins = sprites.create(img`
@@ -292,7 +292,6 @@ function Level1 () {
         if (info.score() == 20) {
             break;
         }
-        pause(100)
         mysprite5.setBounceOnWall(false)
         mysprite6 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -317,7 +316,6 @@ function Level1 () {
         if (info.score() == 20) {
             break;
         }
-        pause(100)
         mysprite6.setBounceOnWall(false)
     }
     mySprite.setFlag(SpriteFlag.Invisible, true)
