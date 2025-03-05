@@ -799,6 +799,15 @@ function Level4 () {
         } else if (info.countdown() >= 5) {
             info.changeScoreBy(1)
         }
+        if (info.life() >= 5) {
+            info.changeScoreBy(5)
+        } else if (info.life() >= 4) {
+            info.changeScoreBy(4)
+        } else if (info.life() >= 3) {
+            info.changeScoreBy(2)
+        } else if (info.life() >= 2) {
+            info.changeScoreBy(1)
+        }
         info.stopCountdown()
         game.splash("GAME!")
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
