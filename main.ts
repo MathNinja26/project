@@ -4,7 +4,9 @@ namespace SpriteKind {
 }
 // Declairs winner of Game
 function name (who: string) {
-    game.splash("You won " + who + "!")
+    textSprite = textsprite.create("You won " + who + "!")
+    textSprite.setOutline(2, 2)
+    game.splash("")
     return who
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -842,6 +844,7 @@ let Coin2: Sprite = null
 let Coin1: Sprite = null
 let y = 0
 let x = 0
+let textSprite: TextSprite = null
 let mySprite: Sprite = null
 let person = game.askForString("What is your name?")
 game.splash("RULES")
