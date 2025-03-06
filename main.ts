@@ -7,6 +7,7 @@ function name (who: string) {
     textSprite = textsprite.create("You won " + who + "!")
     // extension called text sprite
     textSprite.setOutline(2, 2)
+    textSprite.setBorder(1, 5)
     game.splash(textSprite)
     // return value
     return who
