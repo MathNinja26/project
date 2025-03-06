@@ -245,6 +245,7 @@ function Level3 () {
         pause(500)
         mySprite2.setBounceOnWall(false)
     }
+    //once score is 49 
     if (info.score() == 49) {
         if (info.countdown() >= 10) {
             info.changeLifeBy(1)
