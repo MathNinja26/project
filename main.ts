@@ -318,7 +318,7 @@ function Level1 () {
     tiles.setCurrentTilemap(tilemap`level12`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
     // is an array
-    list = [14, 4, 8]
+    list = [14, 5, 8]
     listx = [3, 1, 6]
     coins = sprites.create(img`
         . . . b b . . . 
