@@ -420,7 +420,7 @@ function Level1 () {
         if (info.score() == 20) {
             break;
         }
-        pause(3500)
+        pause(2000)
         mysprite4.setBounceOnWall(false)
         mysprite5 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
