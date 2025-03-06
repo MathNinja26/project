@@ -2,11 +2,13 @@ namespace SpriteKind {
     export const Coin = SpriteKind.create()
     export const Ghost = SpriteKind.create()
 }
-// Declairs winner of Game
+// Declairs winner of Game it is our function with parameter and return value
 function name (who: string) {
     textSprite = textsprite.create("You won " + who + "!")
+    // extension called text sprite
     textSprite.setOutline(2, 2)
     game.splash(textSprite)
+    // return value
     return who
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -118,6 +120,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSpr
 })
 // calls level three
 function Level3 () {
+    // tile map
     tiles.setCurrentTilemap(tilemap`level17`)
     Coin1 = sprites.create(img`
         . . . b b . . . 
@@ -247,7 +250,7 @@ function Level3 () {
         pause(500)
         mySprite2.setBounceOnWall(false)
     }
-    // when score is 49 level is completed and life gets changed by amount of time left on countdown
+    // when score is 49 level is completed and life gets changed by amount of time left on countdown it is a conditional statement
     if (info.score() == 49) {
         if (info.countdown() >= 10) {
             info.changeLifeBy(1)
@@ -314,6 +317,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 function Level1 () {
     tiles.setCurrentTilemap(tilemap`level12`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
+    // is an array
     list = [14, 4, 8]
     listx = [3, 1, 6]
     coins = sprites.create(img`
@@ -520,7 +524,7 @@ function level2 () {
     }
     // starts a countdown fot 25 seconds
     info.startCountdown(25)
-    // while score is not 40 the projectiles keep sponding.
+    // while score is not 40 the projectiles keep sponding. is one of our while loops
     while (info.score() != 40) {
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -861,6 +865,7 @@ let y = 0
 let x = 0
 let textSprite: TextSprite = null
 let mySprite: Sprite = null
+// user input
 let person = game.askForString("What is your name?")
 game.splash("RULES")
 game.splash("1. Collect all the coins in the level")
