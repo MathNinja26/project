@@ -110,13 +110,13 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
-//makes score go up when sprite goes over coin
+// makes score go up when sprite goes over coin
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(otherSprite, effects.fire, 1000)
     music.play(music.stringPlayable("G - - B - - - - ", 900), music.PlaybackMode.UntilDone)
 })
-//calls level three
+// calls level three
 function Level3 () {
     tiles.setCurrentTilemap(tilemap`level17`)
     Coin1 = sprites.create(img`
@@ -222,7 +222,7 @@ function Level3 () {
     tiles.placeOnTile(Coin8, tiles.getTileLocation(5, 9))
     tiles.placeOnTile(Coin9, tiles.getTileLocation(8, 6))
     info.startCountdown(50)
-    //while the score is not 49 projectiles keep going.
+    // while the score is not 49 projectiles keep going.
     while (info.score() != 49) {
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -247,17 +247,17 @@ function Level3 () {
         pause(500)
         mySprite2.setBounceOnWall(false)
     }
-    //when score is 49 level is completed and life gets changed by amount of time left on countdown
+    // when score is 49 level is completed and life gets changed by amount of time left on countdown
     if (info.score() == 49) {
         if (info.countdown() >= 10) {
             info.changeLifeBy(1)
         }
         mySprite.setFlag(SpriteFlag.Invisible, true)
-        //destroys the sprite
+        // destroys the sprite
         sprites.destroy(mySprite)
     }
 }
-//makes the sprite look like they are moving left.
+// makes the sprite look like they are moving left.
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.left.isPressed()) {
         x = mySprite.x
@@ -310,7 +310,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
-//calls level one
+// calls level one
 function Level1 () {
     tiles.setCurrentTilemap(tilemap`level12`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
@@ -341,7 +341,7 @@ function Level1 () {
         tiles.placeOnRandomTile(coins, sprites.dungeon.darkGroundCenter)
     }
     info.startCountdown(50)
-    //while score is not 20 the projectiles keep sponding. 
+    // while score is not 20 the projectiles keep sponding.
     while (info.score() != 20) {
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -468,9 +468,9 @@ function Level1 () {
         mysprite6.setBounceOnWall(false)
     }
     mySprite.setFlag(SpriteFlag.Invisible, true)
-    //destroys sprite
+    // destroys sprite
     sprites.destroy(mySprite)
-    //when score it 20 it changes life by time left in countdown and move to the next level.
+    // when score it 20 it changes life by time left in countdown and move to the next level.
     if (info.score() == 20) {
         if (info.countdown() >= 35) {
             info.changeLifeBy(2)
@@ -482,7 +482,7 @@ function Level1 () {
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
     }
 }
-//calls level two
+// calls level two
 function level2 () {
     tiles.setCurrentTilemap(tilemap`level6`)
     scene.cameraFollowSprite(mySprite)
@@ -518,9 +518,9 @@ function level2 () {
             `, SpriteKind.Coin)
         tiles.placeOnRandomTile(coins, sprites.builtin.coral1)
     }
-    //starts a countdown fot 25 seconds
+    // starts a countdown fot 25 seconds
     info.startCountdown(25)
-    //while score is not 40 the projectiles keep sponding.
+    // while score is not 40 the projectiles keep sponding.
     while (info.score() != 40) {
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -546,7 +546,7 @@ function level2 () {
         mySprite2.setBounceOnWall(false)
     }
     mySprite.setFlag(SpriteFlag.Invisible, true)
-    //changes life by amount of time left in countdown. 
+    // changes life by amount of time left in countdown.
     if (info.score() == 40) {
         if (info.countdown() >= 10) {
             info.changeLifeBy(2)
@@ -559,7 +559,7 @@ function level2 () {
         sprites.destroy(mySprite)
     }
 }
-//when the right button is pressed it looks like the player is moving right. 
+// when the right button is pressed it looks like the player is moving right.
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.right.isPressed()) {
         x = mySprite.x
