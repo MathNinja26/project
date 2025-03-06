@@ -870,9 +870,9 @@ mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . . f f f . . . . . . . 
     `, SpriteKind.Player)
+Level1()
 level2()
 Level3()
-Level1()
 Level4()
 name(person)
 game.setGameOverEffect(true, effects.confetti)
