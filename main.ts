@@ -222,28 +222,7 @@ function Level3 () {
     info.startCountdown(50)
     // while score is not 49 projectiles keep going.
     while (info.score() != 49) {
-        mySprite2 = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . 2 2 2 2 2 2 2 2 . . . . . 
-            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
-            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
-            . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
-            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
-            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
-            . . . 2 2 2 2 2 2 2 2 . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `, SpriteKind.Projectile)
-        tiles.placeOnRandomTile(mySprite2, sprites.castle.tileDarkGrass3)
-        mySprite2.setVelocity(-150, 0)
-        pause(500)
-        mySprite2.setBounceOnWall(false)
+        mySprite.setBounceOnWall(false)
     }
     // once score is 49
     if (info.score() == 49) {
@@ -831,10 +810,10 @@ let mysprite6: Sprite = null
 let mysprite5: Sprite = null
 let mysprite4: Sprite = null
 let mySprite3: Sprite = null
+let mySprite2: Sprite = null
 let coins: Sprite = null
 let listx: number[] = []
 let list: number[] = []
-let mySprite2: Sprite = null
 let Coin9: Sprite = null
 let Coin8: Sprite = null
 let Coin7: Sprite = null
