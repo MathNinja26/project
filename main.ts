@@ -8,7 +8,7 @@ function name (who: string) {
     return who
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    // makes character look like they are moving
+    //makes character look like they are moving
     while (controller.up.isPressed()) {
         x = mySprite.x
         y = mySprite.y
@@ -108,139 +108,13 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
-// makes score go up when player goes over a coin
+//
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(otherSprite, effects.fire, 1000)
     music.play(music.stringPlayable("G - - B - - - - ", 900), music.PlaybackMode.UntilDone)
 })
 function Level3 () {
-    tiles.setCurrentTilemap(tilemap`level6`)
-    scene.cameraFollowSprite(mySprite)
-    mySprite = sprites.create(img`
-        . . . . . . f f f f . . . . . . 
-        . . . . f f f 2 2 f f f . . . . 
-        . . . f f f 2 2 2 2 f f f . . . 
-        . . f f f e e e e e e f f f . . 
-        . . f f e 2 2 2 2 2 2 e e f . . 
-        . . f e 2 f f f f f f 2 e f . . 
-        . . f f f f e e e e f f f f . . 
-        . f f e f b f 4 4 f b f e f f . 
-        . f e e 4 1 f d d f 1 4 e e f . 
-        . . f e e d d d d d d e e f . . 
-        . . . f e e 4 4 4 4 e e f . . . 
-        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
-        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
-        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
-        . . . . . f f f f f f . . . . . 
-        . . . . . f f . . f f . . . . . 
-        `, SpriteKind.Player)
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 3))
-    for (let index = 0; index < 20; index++) {
-        coins = sprites.create(img`
-            . . . b b . . . 
-            . . b 5 5 b . . 
-            . b 5 d 1 5 b . 
-            . b 5 3 1 5 b . 
-            . c 5 3 1 d c . 
-            . c 5 1 d d c . 
-            . . f d d f . . 
-            . . . f f . . . 
-            `, SpriteKind.Coin)
-        tiles.placeOnRandomTile(coins, sprites.builtin.coral1)
-    }
-    info.startCountdown(25)
-    while (info.score() != 40) {
-        mySprite2 = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . 2 2 2 2 2 2 2 2 . . . . . 
-            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
-            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
-            . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
-            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
-            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
-            . . . 2 2 2 2 2 2 2 2 . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `, SpriteKind.Projectile)
-        tiles.placeOnRandomTile(mySprite2, sprites.dungeon.collectibleInsignia)
-        mySprite2.setVelocity(-150, 0)
-        pause(500)
-        mySprite2.setBounceOnWall(false)
-    }
-    mySprite.setFlag(SpriteFlag.Invisible, true)
-    if (info.score() == 40) {
-        if (info.countdown() >= 10) {
-            info.changeLifeBy(2)
-        } else if (info.countdown() >= 5) {
-            info.changeLifeBy(1)
-        }
-        info.stopCountdown()
-        game.splash("NEXT LEVEL!")
-        music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
-        sprites.destroy(mySprite)
-    }
-}
-controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-    while (controller.left.isPressed()) {
-        x = mySprite.x
-        y = mySprite.y
-        sprites.destroy(mySprite)
-        mySprite = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . f f f f f f . . . . . . 
-            . . . f 2 f e e e e f f . . . . 
-            . . f 2 2 2 f e e e e f f . . . 
-            . . f e e e e f f e e e f . . . 
-            . f e 2 2 2 2 e e f f f f . . . 
-            . f 2 e f f f f 2 2 2 e f . . . 
-            . f f f e e e f f f f f f f . . 
-            . f e e 4 4 f b e 4 4 e f f . . 
-            . . f e d d f 1 4 d 4 e e f . . 
-            . . . f d d d e e e e e f . . . 
-            . . . f e 4 e d d 4 f . . . . . 
-            . . . f 2 2 e d d e f . . . . . 
-            . . f f 5 5 f e e f f f . . . . 
-            . . f f f f f f f f f f . . . . 
-            . . . f f f . . . f f . . . . . 
-            `, SpriteKind.Player)
-        mySprite.x = x
-        mySprite.y = y
-        pause(100)
-        x = mySprite.x
-        y = mySprite.y
-        sprites.destroy(mySprite)
-        mySprite = sprites.create(img`
-            . . . . f f f f f f . . . . . . 
-            . . . f 2 f e e e e f f . . . . 
-            . . f 2 2 2 f e e e e f f . . . 
-            . . f e e e e f f e e e f . . . 
-            . f e 2 2 2 2 e e f f f f . . . 
-            . f 2 e f f f f 2 2 2 e f . . . 
-            . f f f e e e f f f f f f f . . 
-            . f e e 4 4 f b e 4 4 e f f . . 
-            . . f e d d f 1 4 d 4 e e f . . 
-            . . . f d d d d 4 e e e f . . . 
-            . . . f e 4 4 4 e e f f . . . . 
-            . . . f 2 2 2 e d d 4 . . . . . 
-            . . . f 2 2 2 e d d e . . . . . 
-            . . . f 5 5 4 f e e f . . . . . 
-            . . . . f f f f f f . . . . . . 
-            . . . . . . f f f . . . . . . . 
-            `, SpriteKind.Player)
-        mySprite.x = x
-        mySprite.y = y
-        pause(100)
-    }
-})
-// code for level three
-function Level1 () {
     tiles.setCurrentTilemap(tilemap`level17`)
     Coin1 = sprites.create(img`
         . . . b b . . . 
@@ -333,24 +207,6 @@ function Level1 () {
         . . . f f . . . 
         `, SpriteKind.Coin)
     tiles.placeOnRandomTile(mySprite, sprites.castle.tilePath4)
-    mySprite = sprites.create(img`
-        . . . . . . f f f f . . . . . . 
-        . . . . f f f 2 2 f f f . . . . 
-        . . . f f f 2 2 2 2 f f f . . . 
-        . . f f f e e e e e e f f f . . 
-        . . f f e 2 2 2 2 2 2 e e f . . 
-        . . f e 2 f f f f f f 2 e f . . 
-        . . f f f f e e e e f f f f . . 
-        . f f e f b f 4 4 f b f e f f . 
-        . f e e 4 1 f d d f 1 4 e e f . 
-        . . f e e d d d d d d e e f . . 
-        . . . f e e 4 4 4 4 e e f . . . 
-        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
-        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
-        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
-        . . . . . f f f f f f . . . . . 
-        . . . . . f f . . f f . . . . . 
-        `, SpriteKind.Player)
     mySprite.setFlag(SpriteFlag.Invisible, false)
     scene.cameraFollowSprite(mySprite)
     tiles.placeOnTile(Coin1, tiles.getTileLocation(5, 1))
@@ -363,11 +219,30 @@ function Level1 () {
     tiles.placeOnTile(Coin8, tiles.getTileLocation(5, 9))
     tiles.placeOnTile(Coin9, tiles.getTileLocation(8, 6))
     info.startCountdown(50)
-    // while score is not 49 projectiles keep going.
     while (info.score() != 49) {
-        mySprite.setBounceOnWall(false)
+        mySprite2 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Projectile)
+        tiles.placeOnRandomTile(mySprite2, sprites.castle.tileDarkGrass3)
+        mySprite2.setVelocity(-150, 0)
+        pause(500)
+        mySprite2.setBounceOnWall(false)
     }
-    // once score is 49
     if (info.score() == 49) {
         if (info.countdown() >= 10) {
             info.changeLifeBy(1)
@@ -376,7 +251,59 @@ function Level1 () {
         sprites.destroy(mySprite)
     }
 }
-function level2 () {
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    while (controller.left.isPressed()) {
+        x = mySprite.x
+        y = mySprite.y
+        sprites.destroy(mySprite)
+        mySprite = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . f f f f f f . . . . . . 
+            . . . f 2 f e e e e f f . . . . 
+            . . f 2 2 2 f e e e e f f . . . 
+            . . f e e e e f f e e e f . . . 
+            . f e 2 2 2 2 e e f f f f . . . 
+            . f 2 e f f f f 2 2 2 e f . . . 
+            . f f f e e e f f f f f f f . . 
+            . f e e 4 4 f b e 4 4 e f f . . 
+            . . f e d d f 1 4 d 4 e e f . . 
+            . . . f d d d e e e e e f . . . 
+            . . . f e 4 e d d 4 f . . . . . 
+            . . . f 2 2 e d d e f . . . . . 
+            . . f f 5 5 f e e f f f . . . . 
+            . . f f f f f f f f f f . . . . 
+            . . . f f f . . . f f . . . . . 
+            `, SpriteKind.Player)
+        mySprite.x = x
+        mySprite.y = y
+        pause(100)
+        x = mySprite.x
+        y = mySprite.y
+        sprites.destroy(mySprite)
+        mySprite = sprites.create(img`
+            . . . . f f f f f f . . . . . . 
+            . . . f 2 f e e e e f f . . . . 
+            . . f 2 2 2 f e e e e f f . . . 
+            . . f e e e e f f e e e f . . . 
+            . f e 2 2 2 2 e e f f f f . . . 
+            . f 2 e f f f f 2 2 2 e f . . . 
+            . f f f e e e f f f f f f f . . 
+            . f e e 4 4 f b e 4 4 e f f . . 
+            . . f e d d f 1 4 d 4 e e f . . 
+            . . . f d d d d 4 e e e f . . . 
+            . . . f e 4 4 4 e e f f . . . . 
+            . . . f 2 2 2 e d d 4 . . . . . 
+            . . . f 2 2 2 e d d e . . . . . 
+            . . . f 5 5 4 f e e f . . . . . 
+            . . . . f f f f f f . . . . . . 
+            . . . . . . f f f . . . . . . . 
+            `, SpriteKind.Player)
+        mySprite.x = x
+        mySprite.y = y
+        pause(100)
+    }
+})
+function Level1 () {
     tiles.setCurrentTilemap(tilemap`level12`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 1))
     list = [14, 4, 8]
@@ -542,6 +469,79 @@ function level2 () {
         info.stopCountdown()
         game.splash("NEXT LEVEL!")
         music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
+    }
+}
+function level2 () {
+    tiles.setCurrentTilemap(tilemap`level6`)
+    scene.cameraFollowSprite(mySprite)
+    mySprite = sprites.create(img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f 2 2 f f f . . . . 
+        . . . f f f 2 2 2 2 f f f . . . 
+        . . f f f e e e e e e f f f . . 
+        . . f f e 2 2 2 2 2 2 e e f . . 
+        . . f e 2 f f f f f f 2 e f . . 
+        . . f f f f e e e e f f f f . . 
+        . f f e f b f 4 4 f b f e f f . 
+        . f e e 4 1 f d d f 1 4 e e f . 
+        . . f e e d d d d d d e e f . . 
+        . . . f e e 4 4 4 4 e e f . . . 
+        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `, SpriteKind.Player)
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 3))
+    for (let index = 0; index < 20; index++) {
+        coins = sprites.create(img`
+            . . . b b . . . 
+            . . b 5 5 b . . 
+            . b 5 d 1 5 b . 
+            . b 5 3 1 5 b . 
+            . c 5 3 1 d c . 
+            . c 5 1 d d c . 
+            . . f d d f . . 
+            . . . f f . . . 
+            `, SpriteKind.Coin)
+        tiles.placeOnRandomTile(coins, sprites.builtin.coral1)
+    }
+    info.startCountdown(25)
+    while (info.score() != 40) {
+        mySprite2 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . 2 2 4 4 5 6 6 5 4 4 2 2 . . . 
+            . . 2 4 4 5 5 5 5 4 4 2 . . . . 
+            . . 2 2 4 4 4 4 4 4 2 2 . . . . 
+            . . . 2 2 2 2 2 2 2 2 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Projectile)
+        tiles.placeOnRandomTile(mySprite2, sprites.dungeon.collectibleInsignia)
+        mySprite2.setVelocity(-150, 0)
+        pause(500)
+        mySprite2.setBounceOnWall(false)
+    }
+    mySprite.setFlag(SpriteFlag.Invisible, true)
+    if (info.score() == 40) {
+        if (info.countdown() >= 10) {
+            info.changeLifeBy(2)
+        } else if (info.countdown() >= 5) {
+            info.changeLifeBy(1)
+        }
+        info.stopCountdown()
+        game.splash("NEXT LEVEL!")
+        music.play(music.melodyPlayable(music.baDing), music.PlaybackMode.UntilDone)
+        sprites.destroy(mySprite)
     }
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -828,8 +828,10 @@ let mysprite6: Sprite = null
 let mysprite5: Sprite = null
 let mysprite4: Sprite = null
 let mySprite3: Sprite = null
+let coins: Sprite = null
 let listx: number[] = []
 let list: number[] = []
+let mySprite2: Sprite = null
 let Coin9: Sprite = null
 let Coin8: Sprite = null
 let Coin7: Sprite = null
@@ -839,8 +841,6 @@ let Coin4: Sprite = null
 let Coin3: Sprite = null
 let Coin2: Sprite = null
 let Coin1: Sprite = null
-let mySprite2: Sprite = null
-let coins: Sprite = null
 let y = 0
 let x = 0
 let mySprite: Sprite = null
