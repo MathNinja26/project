@@ -8,7 +8,7 @@ function name (who: string) {
     return who
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    //makes character look like they are moving
+    // makes character look like they are moving
     while (controller.up.isPressed()) {
         x = mySprite.x
         y = mySprite.y
@@ -108,7 +108,6 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
-//
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(otherSprite, effects.fire, 1000)
