@@ -468,7 +468,9 @@ function Level1 () {
         mysprite6.setBounceOnWall(false)
     }
     mySprite.setFlag(SpriteFlag.Invisible, true)
+    //destroys sprite
     sprites.destroy(mySprite)
+    //when score it 20 it changes life by time left in countdown and move to the next level.
     if (info.score() == 20) {
         if (info.countdown() >= 35) {
             info.changeLifeBy(2)
@@ -516,6 +518,7 @@ function level2 () {
             `, SpriteKind.Coin)
         tiles.placeOnRandomTile(coins, sprites.builtin.coral1)
     }
+    //starts a countdown fot 25 seconds
     info.startCountdown(25)
     //while score is not 40 the projectiles keep sponding.
     while (info.score() != 40) {
@@ -556,6 +559,7 @@ function level2 () {
         sprites.destroy(mySprite)
     }
 }
+//when the right button is pressed it looks like the player is moving right. 
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     while (controller.right.isPressed()) {
         x = mySprite.x
