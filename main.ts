@@ -224,7 +224,7 @@ function Level3 () {
     tiles.placeOnTile(Coin7, tiles.getTileLocation(11, 13))
     tiles.placeOnTile(Coin8, tiles.getTileLocation(5, 9))
     tiles.placeOnTile(Coin9, tiles.getTileLocation(8, 6))
-    info.startCountdown(50)
+    info.startCountdown(100)
     // while the score is not 49 projectiles keep going.
     while (info.score() != 49) {
         mySprite2 = sprites.create(img`
@@ -420,7 +420,7 @@ function Level1 () {
         if (info.score() == 20) {
             break;
         }
-        pause(2500)
+        pause(3500)
         mysprite4.setBounceOnWall(false)
         mysprite5 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
