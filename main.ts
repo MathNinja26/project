@@ -6,7 +6,7 @@ namespace SpriteKind {
 function name (who: string) {
     textSprite = textsprite.create("You won " + who + "!")
     textSprite.setOutline(2, 2)
-    game.splash("")
+    game.splash(textSprite)
     return who
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
