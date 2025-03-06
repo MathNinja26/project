@@ -2,11 +2,13 @@ namespace SpriteKind {
     export const Coin = SpriteKind.create()
     export const Ghost = SpriteKind.create()
 }
+// Declairs winner of Game
 function name (who: string) {
     game.splash("You won " + who + "!")
     return who
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    //makes character look like they are moving
     while (controller.up.isPressed()) {
         x = mySprite.x
         y = mySprite.y
@@ -106,6 +108,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+//
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(otherSprite, effects.fire, 1000)
