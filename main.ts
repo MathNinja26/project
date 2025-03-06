@@ -108,11 +108,13 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         pause(100)
     }
 })
+//makes score go up when player goes over a coin
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
     info.changeScoreBy(1)
     sprites.destroy(otherSprite, effects.fire, 1000)
     music.play(music.stringPlayable("G - - B - - - - ", 900), music.PlaybackMode.UntilDone)
 })
+//code for level three
 function Level3 () {
     tiles.setCurrentTilemap(tilemap`level17`)
     Coin1 = sprites.create(img`
@@ -218,6 +220,7 @@ function Level3 () {
     tiles.placeOnTile(Coin8, tiles.getTileLocation(5, 9))
     tiles.placeOnTile(Coin9, tiles.getTileLocation(8, 6))
     info.startCountdown(50)
+    //while score is not 49 projectiles keep going.
     while (info.score() != 49) {
         mySprite2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
